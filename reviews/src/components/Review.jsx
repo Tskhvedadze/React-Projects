@@ -6,6 +6,25 @@ const Review = () => {
     const [index, setIndex] = useState(0)
     const { name, job, image, text } = people[index]
 
+    const checkIndex = (index) =>
+        (index > people.length - 1 && (index = 0)) ||
+        (index < 0 && (index = people.length - 1)) ||
+        index
+
+    const nextPerson = () => {
+        setIndex((index) => {
+            let newIndex = index + 1
+            return checkIndex(newIndex)
+        })
+    }
+
+    const prevPerson = () => {
+        setIndex((index) => {
+            let newIndex = index - 1
+            return checkIndex(newIndex)
+        })
+    }
+
     return (
         <article className='review'>
             <div className='img-container'>
@@ -18,16 +37,10 @@ const Review = () => {
             <p className='job'>{job}</p>
             <p className='info'>{text}</p>
             <div className='button-container'>
-                <button
-                    onClick={() => setIndex((next) => next - 1)}
-                    className='prev-btn'
-                >
+                <button onClick={prevPerson} className='prev-btn'>
                     <FaChevronLeft />
                 </button>
-                <button
-                    onClick={() => setIndex((next) => next + 1)}
-                    className='next-btn'
-                >
+                <button onClick={nextPerson} className='next-btn'>
                     <FaChevronRight />
                 </button>
             </div>
