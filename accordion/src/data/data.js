@@ -1,4 +1,4 @@
-const questions = [
+export const data = [
     {
         id: 1,
         title: 'Do I have to allow the use of cookies?',
@@ -25,4 +25,3 @@ const questions = [
         info: 'Locavore franzen fashion axe live-edge neutra irony synth af tilde shabby chic man braid chillwave waistcoat copper mug messenger bag. Banjo snackwave blog, microdosing thundercats migas vaporware viral lo-fi seitan ',
     },
 ]
-export default questions
