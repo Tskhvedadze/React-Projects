@@ -7,6 +7,14 @@ function App() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        let amount = parseInt(count)
+        if (amount <= 0) {
+            amount = 1
+        }
+        if (amount > 8) {
+            amount = 8
+        }
+        setText(data.slice(0, amount))
     }
 
     return (
@@ -26,14 +34,9 @@ function App() {
                 </button>
             </form>
             <article className='lorem-text'>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Similique, repellendus.
-                </p>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Similique, repellendus.
-                </p>
+                {text.map((item, index) => {
+                    return <p key={index}>{item}</p>
+                })}
             </article>
         </section>
     )
